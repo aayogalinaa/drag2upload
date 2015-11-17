@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/upload_image.css" rel='stylesheet' type='text/css'>
+    <script src="js/config.js"></script>
+    <script src="js/upload_image.js"></script>
+</head>
+<body>
+    <div class="container image-container">
+        <div id="drop_image" ondragover="javascript: dragHandler(event);" ondrop="javascript: drop_image(event);" class="upload-image"></div>
+        <div class="progress text-center">
+          <div id="upload_progress" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100">
+          </div>
+        </div>
+    </div>
+    <div id="images_container" class="container"></div>
+</body>
+</html>
