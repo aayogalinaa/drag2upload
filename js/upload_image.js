@@ -38,7 +38,7 @@ function drop_image(e)
         }
     }
     
-    objXhr.open('POST', API_URL+'upload/uploadFile?name=images') ;
+    objXhr.open('POST', 'php/upload.php?name=images') ;
     for (var i=0; i<files.length; i++)
     {
         if (!files[i].type.match('image'))
