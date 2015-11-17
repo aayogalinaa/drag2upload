@@ -31,7 +31,7 @@ function drop_image(e)
         
         for (var i=0; i<arrData.length; i++)
         {
-            var img = document.createElement('img') ;
+            var img = new Image() ;
             img.src = arrData[i].url ;
             img.className = 'image' ;
             images_container.appendChild(img) ;
