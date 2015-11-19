@@ -11,7 +11,7 @@ try
     $strName  = $_GET['name'] ;
     $arrFiles = $_FILES[$strName] ;
     
-    foreach ($arrFiles as $field => $row)
+    foreach ($arrFiles as $field => $row) //調整$_FILES格式為JSON物件的格式
     {
         for ($i=0; $i<count($row); $i++)
         {
@@ -36,12 +36,12 @@ catch (Exception $e)
 
 try
 {
-    $strUploadDir = '/image' ;
+    $strUploadDir = '/image' ; //設定儲存圖片的路徑(目錄)
     $datetime     = date('YmdHis') ;
     $count        = 0 ;
     $arrData      = array() ;
     
-    foreach ($arrReqData as $row)
+    foreach ($arrReqData as $row) //上傳每張圖片並且為檔案重新命名
     {
         if ($row->error != UPLOAD_ERR_OK)
         {
@@ -62,14 +62,14 @@ try
             $name = $datetime.'-'.$count ;
         }
         
-        $rs = move_uploaded_file($row->tmp_name, "$strUploadDir/$name.$type") ;
+        $rs = move_uploaded_file($row->tmp_name, "$strUploadDir/$name.$type") ; //上傳檔案
         $objData = new stdClass() ;
-        if ($rs == true)
+        if ($rs == true) //上傳成功則回傳成功訊息並且加上圖檔URL
         {
             $objData->message = 'Success' ;
             $objData->url     = "/image/$name.$type" ;
         }
-        else
+        else  // 上傳失敗則回傳失敗訊息
         {
             $objData->message = 'Fail' ;
         }
