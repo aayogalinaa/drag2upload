@@ -31,14 +31,17 @@ function drop_image(e)
         
         for (var i=0; i<arrData.length; i++)
         {
-            var img = new Image() ;
-            img.src = arrData[i].url ;
-            img.className = 'image' ;
-            images_container.appendChild(img) ;
+            if (arrData[i].message == 'Success')
+            {
+                var img = new Image() ;
+                img.src = arrData[i].url ;
+                img.className = 'image' ;
+                images_container.appendChild(img) ;
+            }
         }
     }
     
-    objXhr.open('POST', 'php/upload.php?name=images') ;
+    objXhr.open('POST', API_URL+'upload/uploadFile?name=images') ;
     for (var i=0; i<files.length; i++)
     {
         if (!files[i].type.match('image'))
