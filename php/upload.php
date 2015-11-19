@@ -8,7 +8,7 @@ try
     {
         throw new Exception("Missing Name") ;
     }
-    $strName = $_GET['name'] ;
+    $strName  = $_GET['name'] ;
     $arrFiles = $_FILES[$strName] ;
     
     foreach ($arrFiles as $field => $row)
@@ -17,9 +17,9 @@ try
         {
             if (!isset($arrReqData[$i]))
             {
-                $objReqData = new stdClass() ;
+                $objReqData         = new stdClass() ;
                 $objReqData->$field = $row[$i] ;
-                $arrReqData[] = $objReqData ;
+                $arrReqData[]       = $objReqData ;
             }
             else
             {
@@ -47,14 +47,14 @@ try
         {
             continue ;
         }
-        $arrFileName = explode('.', $row->name) ;
-        $type = $arrFileName[1] ;
+        $arrFileName  = explode('.', $row->name) ;
+        $type         = $arrFileName[1] ;
         $tmp_datetime = date('YmdHis') ;
         if ($tmp_datetime != $datetime)
         {
             $count = 0 ;
             $datetime = $tmp_datetime ;
-            $name = $datetime.'-'.$count ;
+            $name     = $datetime.'-'.$count ;
         }
         else
         {
@@ -67,7 +67,7 @@ try
         if ($rs == true)
         {
             $objData->message = 'Success' ;
-            $objData->url = getenv('HTTP_CLIENT_IP')."/phone/image/$name.$type" ;
+            $objData->url     = getenv('HTTP_CLIENT_IP')."/phone/image/$name.$type" ;
         }
         else
         {
