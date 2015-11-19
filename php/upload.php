@@ -36,7 +36,7 @@ catch (Exception $e)
 
 try
 {
-    $strUploadDir = $_SERVER['DOCUMENT_ROOT'].'/phone/image' ;
+    $strUploadDir = '/image' ;
     $datetime     = date('YmdHis') ;
     $count        = 0 ;
     $arrData      = array() ;
@@ -67,7 +67,7 @@ try
         if ($rs == true)
         {
             $objData->message = 'Success' ;
-            $objData->url     = getenv('HTTP_CLIENT_IP')."/phone/image/$name.$type" ;
+            $objData->url     = "/image/$name.$type" ;
         }
         else
         {
